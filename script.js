@@ -28,3 +28,15 @@ function obtenerTarifa() {
     }
     return tarifaGuardada;
 }
+
+// 3. Función de expresión: cargo fijo por servicio
+const obtenerCargoFijo = function () {
+    if (cargoFijoGuardado === 0) {
+        let valor = parseFloat(prompt("Ingresa el cargo fijo por servicio (en pesos):"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa el cargo fijo (número positivo):"));
+        }
+        cargoFijoGuardado = valor;
+    }
+    return cargoFijoGuardado;
+}
