@@ -74,3 +74,44 @@ const calcularTotal = () => {
     const cargo = obtenerCargoFijo();
     return subtotal + iva + cargo;
 }
+
+// 8. Función final: mostrar la factura completa
+function mostrarFactura() {
+
+    const consumo = obtenerConsumo();
+    const tarifa = obtenerTarifa();
+    const cargoFijo = obtenerCargoFijo();
+    const porcentajeIVA = obtenerPorcentajeIVA();
+    const subtotal = calcularSubtotal();
+    const montoIVA = calcularIVA();
+    const total = calcularTotal();
+
+    console.log("\n===== FACTURA DE ENERGÍA =====");
+    console.log("Consumo mensual:", consumo, "kWh");
+    console.log("Tarifa por kWh:", tarifa, "pesos");
+    console.log("Subtotal:", subtotal, "pesos");
+    console.log("Cargo fijo:", cargoFijo, "pesos");
+    console.log("Porcentaje de IVA:", porcentajeIVA, "%");
+    console.log("Monto de IVA:", montoIVA, "pesos");
+    console.log("--------------------------------");
+    console.log("TOTAL A PAGAR:", total, "pesos");
+    console.log("==============================");
+}
+
+let continuar = true;
+while (continuar) {
+    consumoGuardado = 0;
+    tarifaGuardada = 0;
+    cargoFijoGuardado = 0;
+    porcentajeIVAGuardado = 0;
+
+    mostrarFactura();
+
+    const respuesta = prompt("¿Deseas generar otra factura? Escribe 'no' para salir, cualquier otra tecla para continuar:");
+
+    if (respuesta === "no" || respuesta === "n") {
+        continuar = false;
+    }
+}
+
+console.log("Gracias por usar el sistema de facturación.");
