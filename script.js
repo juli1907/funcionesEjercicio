@@ -16,3 +16,15 @@ function obtenerConsumo() {
     }
     return consumoGuardado;
 }
+
+// 2. Función declarativa: tarifa por kWh
+function obtenerTarifa() {
+    if (tarifaGuardada === 0) {
+        let valor = parseFloat(prompt("Ingresa la tarifa por kWh (en pesos):"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa la tarifa (número positivo):"));
+        }
+        tarifaGuardada = valor;
+    }
+    return tarifaGuardada;
+}
