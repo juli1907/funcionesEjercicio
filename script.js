@@ -40,3 +40,15 @@ const obtenerCargoFijo = function () {
     }
     return cargoFijoGuardado;
 }
+
+// 4. Función de expresión: porcentaje de IVA
+const obtenerPorcentajeIVA = function () {
+    if (porcentajeIVAGuardado === 0) {
+        let valor = parseFloat(prompt("Ingresa el porcentaje de IVA (%):"));
+        while (isNaN(valor) || valor < 0) {
+            valor = parseFloat(prompt("Valor inválido. Ingresa el IVA (número positivo):"));
+        }
+        porcentajeIVAGuardado = valor;
+    }
+    return porcentajeIVAGuardado;
+}
